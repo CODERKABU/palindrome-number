@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+</head>
+<body>
+
+<h1>Palindrome Checker</h1>
+
+<script>
+    function isPalindromeNumber(userNumber) {
+        // Convert user input to string
+        const numStr = userNumber.toString();
+
+        // Initialize pointers
+        let left = 0;
+        let right = numStr.length - 1;
+
+        // Check if the number is a palindrome
+        while (left < right) {
+            if (numStr[left] !== numStr[right]) {
+                return false; // Not a palindrome
+            }
+            left++;
+            right--;
+        }
+
+        return true; // It's a palindrome
+    }
+
+    // Function to get user input and check if it's a palindrome
+    function checkPalindrome() {
+        const userInput = prompt("Enter a number to check if it's a palindrome:");
+        
+        if (userInput === null || userInput === "") {
+            alert("No input provided. Please enter a number.");
+            return;
+        }
+
+        // Convert user input to a number
+        const num = parseFloat(userInput);
+
+        // Check if the input is a valid number
+        if (isNaN(num)) {
+            alert("Invalid input. Please enter a valid number.");
+            return;
+        }
+
+        const isPalindrome = isPalindromeNumber(num);
+
+        if (isPalindrome) {
+            alert(`${num} is a palindrome!`);
+        } else {
+            alert(`${num} is not a palindrome.`);
+        }
+    }
+
+    // Call the function to start checking
+    checkPalindrome();
+</script>
+
+</body>
+</html>
